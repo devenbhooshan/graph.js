@@ -12,3 +12,9 @@ A liteweight javascript graph library.
     console.log(node2.adjList);   // returns all neighbouring nodes of nod2
     console.log(graph.nodes.length); // returns number of nodes in graph
     
+Traversal
+---------
+
+    var bfsTraversedNodes=bfs(graph); // returns a bfs traversal of graph
+    var dfsTraversedNodes=dfs(graph); // returns a dfs traversal of graph
+    
