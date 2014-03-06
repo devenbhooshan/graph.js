@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../graph.js"></script>
+	
+	</head>
+	<body>
+		<script>
+		graph =new Graph();
+		node1=graph.addNode("1");
+		node2=graph.addNode("2");
+		node3=graph.addNode("3");
+		node4=graph.addNode("4");
+		node5=graph.addNode("5");
+		node6=graph.addNode("6");
+		node7=graph.addNode("7");
+		node8=graph.addNode("8");
+		node9=graph.addNode("9");
+		node10=graph.addNode("10");
+		node1.addEdge(node2);
+		node1.addEdge(node4);
+		node2.addEdge(node3);
+		node4.addEdge(node3);
+		node3.addEdge(node5);
+		node2.addEdge(node6);
+		node6.addEdge(node7);
+		node5.addEdge(node8);
+		node5.addEdge(node9);
+		node8.addEdge(node10);
+		node9.addEdge(node10);
+		bfs(graph);
+		dfs(graph);
+		</script>
+	</body>
+</html>
