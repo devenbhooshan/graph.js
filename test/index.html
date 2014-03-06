@@ -1,0 +1,16 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../graph.js"></script>
+	</head>
+	<body>
+		<script>
+		graph =new Graph();
+		node1=graph.addNode("India");
+		node2=graph.addNode("Delhi");
+		node1.addEdge(node2)
+		console.log(node1.adjList);
+		console.log(node2.adjList);
+		console.log(graph.nodes.length);
+		</script>
+	</body>
+</html>
