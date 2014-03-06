@@ -3,6 +3,8 @@ graph.js
 
 A liteweight javascript graph library. 
 
+Initialization
+--------------
 
     graph =new Graph(); // creates a graph
     node1=graph.AddNode("India"); // creates a node
