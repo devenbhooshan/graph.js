@@ -34,7 +34,7 @@ function Node(Name){
 	this.adjList=[];
 	this.weight=[];
 	this.addEdge=addEdge;
-
+	this.compare=compare;
 	function addEdge(neighbour,weight){
 		this.adjList.push(neighbour);
 		this.weight.push(weight);	
@@ -42,5 +42,8 @@ function Node(Name){
 	
 	function getAdjList(){
 		return adjList;
+	}
+	function compare(node2){
+		return this.weight-node2.weight;
 	}
 }
