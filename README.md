@@ -20,3 +20,7 @@ Traversal
     var bfsTraversedNodes=bfs(graph); // returns a bfs traversal of graph
     var dfsTraversedNodes=dfs(graph); // returns a dfs traversal of graph
     
+Shortest Distance beween two nodes
+------------------------------
+
+    dijkstra(graph,sourceNode,destinationNode); // returns shortest distance between source and destination nodes
