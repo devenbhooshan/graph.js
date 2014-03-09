@@ -3,6 +3,12 @@ graph.js
 
 A liteweight javascript graph library. 
 
+How to use
+* Build the library by typing `make -f Makefile` from the root directory of graph.js. 
+* A file named **graph.js** would be created in the folder **build/** 
+* Done (ya!!!)
+* Sample code can be found in **build/test** folder
+
 Initialization
 --------------
 
