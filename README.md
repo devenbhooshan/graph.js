@@ -3,7 +3,14 @@ graph.js
 
 A liteweight javascript graph library. 
 
+Algorithms implemented so far 
+----------
+* BFS/DFS
+* Dijkstra
+ 
+
 How to use
+----------
 * Build the library by typing `make -f Makefile` from the root directory of graph.js. 
 * A file named **graph.js** would be created in the folder **build/** 
 * Done (ya!!!)
