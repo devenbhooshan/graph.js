@@ -1,9 +1,4 @@
-<html>
-	<head>
-	<script type="text/javascript" src="../graph.js"></script>	
-	</head>
-	<body>
-		<script>
+function pq(){
 		
 		graph =new Graph();
 		node1=graph.addNode("1");
@@ -28,18 +23,6 @@
 		node5.addEdge(node9,12);
 		node8.addEdge(node10,4);
 		node9.addEdge(node10,3);
-		//bfs(graph);
-		//	dfs(graph);
-
-		// Dijkstra
-		console.log('Distance is:');
-		console.log(dijkstra(graph,node1,node10));
-		console.log(dijkstra(graph,node1,node3));
-		console.log(dijkstra(graph,node6,node10));
-		console.log(dijkstra(graph,node8,node10));
-		//console.log(dijkstra(graph,node1));
-
-		// Priority Queue
 		bh=new MinPQ();
 		bh.push(node1,2);
 		bh.push(node2,5);
@@ -47,15 +30,20 @@
 		bh.push(node3,8);
 		bh.push(node7,39);
 		bh.push(node5,2);
-		console.log(bh.remove(node1)==true);
-		console.log(bh.top()==node5);
-		console.log(bh.remove(node1)==false);
-		console.log(bh.pop()==node5);
-		console.log(bh.pop()==node4);
-		console.log(bh.pop()==node2);
-		console.log(bh.pop()==node3);
-		//
-
-		</script>
-	</body>
-</html>
+		test='Priority Queue Test:<br>';
+		error=false;
+		if(!bh.remove(node1)==true){
+			error=true;
+			test+="not able to remove "+node1.name+"<br>";
+		}
+		if(!bh.top()==node5){
+			error=true;
+			test+="Top element error-Expected:"+node5.name+" Found:"+bh.top().name+"<br>";
+		}
+		if(!(bh.remove(node1)==false)){
+			error=true;
+			test+="Should not present but found node : "+node1.name+"<br>";
+		}
+		if(!error) test+="All is well<br>";
+		document.getElementById('test').innerHTML+=test;
+}
