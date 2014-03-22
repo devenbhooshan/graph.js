@@ -12,7 +12,7 @@ Algorithms implemented so far
 
 How to use
 ----------
-* Build the library by typing `make -f Makefile` from the root directory of graph.js. 
+* Build the library by typing `make` from the root directory of graph.js. 
 * A file named **graph.js** would be created in the folder **build/** 
 * Done (ya!!!)
 * Sample code can be found in **test** folder
