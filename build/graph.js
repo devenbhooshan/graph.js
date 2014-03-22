@@ -219,7 +219,7 @@ function MinPQNodes(content,priority){
 
 
 function dijkstra(graph,source,destination){
-
+	console.log("Deve");
 	this.distance=new Array();				
 	this.distance[source.name]=0;
 	this.pq=new MinPQ();
