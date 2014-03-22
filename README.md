@@ -7,6 +7,7 @@ Algorithms implemented so far
 ----------
 * BFS/DFS
 * Dijkstra
+* Bellman- Ford ( Negative Cycle checking )
  
 
 How to use
@@ -14,7 +15,7 @@ How to use
 * Build the library by typing `make -f Makefile` from the root directory of graph.js. 
 * A file named **graph.js** would be created in the folder **build/** 
 * Done (ya!!!)
-* Sample code can be found in **build/test** folder
+* Sample code can be found in **test** folder
 
 Initialization
 --------------
@@ -37,3 +38,4 @@ Shortest Distance beween two nodes
 ------------------------------
 
     dijkstra(graph,sourceNode,destinationNode); // returns shortest distance between source and destination nodes
+    bellman_ford(graph,node1,node6); // This function returns false if there exist negative cycle in the graph otherwise it gives the shortest distance between node1 and node6
