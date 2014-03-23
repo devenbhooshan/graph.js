@@ -4,11 +4,36 @@ function Graph(){
 	this.isWeighted=false;
 	this.nodes=[]
 	this.addNode=addNode;
+	this.removeNode=removeNode;
+	this.nodeExist=nodeExist;
 	this.getAllNodes=getAllNodes;
 	function addNode(Name){
 		temp=new Node(Name);
 		this.nodes.push(temp);
 		return temp;
+	}
+	function removeNode(Name){
+		
+		index=this.nodes.indexOf(Name);
+		if(index>-1){
+			this.nodes.splice(index,1);
+			len=this.nodes.length;
+
+			for (var i = 0; i < len; i++) {
+				if(this.nodes[i].adjList.indexOf(Name)>-1){
+					this.nodes[i].adjList.slice(this.nodes[i].adjList.indexOf(Name));
+					this.nodes[i].weight.slice(this.nodes[i].adjList.indexOf(Name));
+				}
+			}
+		}
+		
+	}
+	function nodeExist(Name){
+		index=this.nodes.indexOf(Name);
+		if(index>-1){
+			return true;
+		}
+		return false;
 	}
 
 	function getAllNodes(){
@@ -219,7 +244,8 @@ function MinPQNodes(content,priority){
 
 
 function dijkstra(graph,source,destination){
-	console.log("Deve");
+
+	this.previousNode=[];
 	this.distance=new Array();				
 	this.distance[source.name]=0;
 	this.pq=new MinPQ();
@@ -241,17 +267,21 @@ function dijkstra(graph,source,destination){
 				alt=this.distance[u.name]+u.weight[i];
 				if(alt<this.distance[v.name]){
 					this.distance[v.name]=alt;
+					this.previousNode[v.name]=u.name;
 					pq.remove(v);
 					pq.push(v,this.distance[v.name]);
 				}
 			}
 		}
 	}
-	
+	if(typeof destination==='undefined'){
+
+	}else 
 	return this.distance[destination.name];
 }
 
 function bellman_ford(graph,source,destination){
+	this.previousNode=[];
 	this.distance=new Array();				
 	this.distance[source.name]=0;
 	var nodes=graph.getAllNodes();
@@ -271,6 +301,8 @@ function bellman_ford(graph,source,destination){
 				if(this.distance[u.name]!=Number.POSITIVE_INFINITY){	
 					alt=this.distance[u.name]+u.weight[i];
 					if(alt<this.distance[v.name]){
+
+						this.previousNode[v.name]=u.name;
 						this.distance[v.name]=alt;
 					}
 				}
@@ -279,14 +311,14 @@ function bellman_ford(graph,source,destination){
 	}
 
 	for(var j=0;j<length;j++){
-		u=nodes[i];
+		u=nodes[j];
 		adjList=u.adjList;
 		for (var i = 0; i < adjList.length; i++) {
 			v=adjList[i];
 			if(this.distance[u.name]!=Number.POSITIVE_INFINITY){	
 				alt=this.distance[u.name]+u.weight[i];
 				if(alt<this.distance[v.name]){
-					return false;
+					return null;
 				}
 			}
 		}
@@ -294,4 +326,59 @@ function bellman_ford(graph,source,destination){
 	
 	return this.distance[destination.name];	
 
+}
+
+function johnson(graph){
+	try
+	{
+		// http://en.wikipedia.org/wiki/Johnson%27s_algorithm
+		temp=new Node('temp');
+		graph.addNode(temp);
+		nodes=graph.getAllNodes();
+		length=nodes.length;
+		for(var j=0;j<length-1;j++){
+			u=nodes[j];
+			temp.addEdge(u,0);
+		}
+		vari=bellman_ford(graph,temp,temp);
+		if(vari==null) {
+			return null;
+		}
+		bell=new bellman_ford(graph,temp,temp);
+		length=nodes.length;
+		h=bell.distance;
+		graph.removeNode(temp);		
+		length=nodes.length;
+		for(var j=0;j<length;j++){
+			u=nodes[j];
+			adjList=u.adjList;
+			for (var i = 0; i < adjList.length; i++) {
+				v=adjList[i];
+				u.weight[i]=u.weight[i]+h[u.name]-h[v.name];
+			}
+		}	
+		distanceMatrix=new Array()
+		length=nodes.length;
+		for(var j=0;j<length;j++){
+			u=nodes[j];
+			list=u.weight;
+			len=list.length;
+			dij=new dijkstra(graph,nodes[j]);
+			distanceMatrix[nodes[j].name]=dij.previousNode;
+			
+		}
+		for(var j=0;j<length;j++){
+			u=nodes[j];
+			adjList=u.adjList;
+			for (var i = 0; i < adjList.length; i++) {
+				v=adjList[i];
+				u.weight[i]=u.weight[i]-h[u.name]+h[v.name];
+			}
+		}
+	}
+	catch(e)
+	{
+		console.log(e);
+	}
+	return distanceMatrix;	
 }

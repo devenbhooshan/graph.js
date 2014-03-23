@@ -11,7 +11,7 @@ function pq(){
 		node8=graph.addNode("8");
 		node9=graph.addNode("9");
 		node10=graph.addNode("10");
-		
+		graph.addNode(node10);
 		node1.addEdge(node2,1);
 		node1.addEdge(node4,2);
 		node2.addEdge(node3,5);
