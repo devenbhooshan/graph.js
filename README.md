@@ -8,6 +8,7 @@ Algorithms implemented so far
 * BFS/DFS
 * Dijkstra
 * Bellman- Ford ( Negative Cycle checking )
+* Johnson's for all pair shortest paths
  
 
 How to use
