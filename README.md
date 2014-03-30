@@ -6,9 +6,10 @@ A liteweight javascript graph library.
 Algorithms implemented so far 
 ----------
 * BFS/DFS
-* Dijkstra
-* Bellman- Ford ( Negative Cycle checking )
+* Dijkstra for shortest path
+* Bellman- Ford for shortest path ( Negative Cycle checking )
 * Johnson's for all pair shortest paths
+* Prim's Algorithm for minimum spanning tree of Undirected complete graph
  
 
 How to use
