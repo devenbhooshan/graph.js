@@ -39,4 +39,4 @@ Shortest Distance beween two nodes
 ------------------------------
 
     dijkstra(graph,sourceNode,destinationNode); // returns shortest distance between source and destination nodes
-    bellman_ford(graph,node1,node6); // This function returns false if there exist negative cycle in the graph otherwise it gives the shortest distance between node1 and node6
+    bellman_ford(graph,node1,node6); // This function returns null if there exist negative cycle in the graph otherwise it gives the shortest distance between node1 and node6
