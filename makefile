@@ -6,7 +6,8 @@ core = ${srclib}graph.js
 modules = ${srcalgo}traversal.js\
 		  ${srcalgo}heap.js\
 		  ${srcalgo}minPriorityQueue.js\
-		  ${srcalgo}shortest_path.js		
+		  ${srcalgo}shortest_path.js\
+		  ${srcalgo}msp.js		  		
 # Build full list of files
 files = ${core} ${modules}
 
