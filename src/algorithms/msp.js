@@ -62,10 +62,6 @@ function kruskal(graph){
 	}
 
 	while(this.Vnode.length!=nodes.length && this.pq.size()!=0){
-		if(this.pq.size()==0){ 
-			this.error=true;
-			return ;
-		}
 		minEdge=this.pq.pop();
 		if(this.Vnode.indexOf(minEdge[1])==-1 && this.Vnode.indexOf(minEdge[0])==-1){
 			this.Vedge.push(minEdge);
@@ -84,6 +80,10 @@ function kruskal(graph){
 			continue;
 		}
 
+	}
+	if(this.pq.size()==0 && this.Vnode.length!=nodes.length){ 
+			this.error=true;
+			return ;
 	}
 	return;
 }
