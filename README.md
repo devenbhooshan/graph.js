@@ -9,7 +9,7 @@ Algorithms implemented so far
 * Dijkstra for shortest path
 * Bellman- Ford for shortest path ( Negative Cycle checking )
 * Johnson's for all pair shortest paths
-* Prim's Algorithm for minimum spanning tree of Undirected complete graph
+* Prim's and Kruskal's Algorithm for minimum spanning tree of Undirected complete graph
  
 
 How to use
