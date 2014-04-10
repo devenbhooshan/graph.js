@@ -48,8 +48,22 @@ function msp(){
 		error=false;
 		test='Minimum Spanning Tree Test:<br>';		
 		
-		msp=new prim(graph)
-		if(msp.error==true){
+		
+		if(kruskal(graph).error==true){
+			error=true;
+			test+='Graph is not connected<br>';
+		}
+		ans=[[1,2],[2,6],[6,7],[2,3],[3,4],[3,5],[5,8],[8,10],[10,9]]
+		Vedge=msp.Vedge;
+		for (var i = 0; i < Vedge.length; i++) {
+			if(ans[i][0]!=Vedge[i][0].name || ans[i][1]!=Vedge[i][1].name ){
+				error=true;
+				test+='Prime returned:'+Vedge[i][0].name+'->'+Vedge[i][1].name+'but expected'+ans[i][0]+'->'+ans[i][1];
+				break;
+			}
+		}
+
+		if(prim(graph).error==true){
 			error=true;
 			test+='Graph is not connected<br>';
 		}
@@ -68,3 +82,6 @@ function msp(){
 		document.getElementById('test').innerHTML+=test;
 
 }
+
+
+

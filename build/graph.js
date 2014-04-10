@@ -421,12 +421,64 @@ function prim(graph){
 
 prim.prototype.InsertEdgeIntoPQ = function(node,pq) {
 	adjList=node.adjList;
-	wights=node.weight;
+	weights=node.weight;
 	for (var i = 0; i < adjList.length; i++) {
 		temp=[];
 		temp.push(node);
 		temp.push(adjList[i]);
-		pq.push(temp,wights[i]);		
+		pq.push(temp,weights[i]);		
 	}
 }
 
+
+function kruskal(graph){
+	node = graph.getAllNodes();
+	nodes=graph.getAllNodes();
+	this.error=false;
+	this.Vnode=[];
+	this.Vedge=[];
+	var i = 0;
+
+	this.pq=new MinPQ();
+	while(i<nodes.length){
+		this.InsertEdgeIntoPQ(nodes[i],pq);
+		i++;
+	}
+
+	while(this.Vnode.length!=nodes.length && this.pq.size()!=0){
+		minEdge=this.pq.pop();
+		if(this.Vnode.indexOf(minEdge[1])==-1 && this.Vnode.indexOf(minEdge[0])==-1){
+			this.Vedge.push(minEdge);
+			this.Vnode.push(minEdge[1]);
+			this.Vnode.push(minEdge[0]);
+		}
+		else if(this.Vnode.indexOf(minEdge[1])!=-1 && this.Vnode.indexOf(minEdge[0])==-1){
+			this.Vedge.push(minEdge);
+			this.Vnode.push(minEdge[0]);
+		}
+		else if(this.Vnode.indexOf(minEdge[1])==-1 && this.Vnode.indexOf(minEdge[0])!=-1){
+			this.Vedge.push(minEdge);
+			this.Vnode.push(minEdge[1]);
+		}
+		else{
+			continue;
+		}
+
+	}
+	if(this.pq.size()==0 && this.Vnode.length!=nodes.length){ 
+			this.error=true;
+			return ;
+	}
+	return;
+}
+
+kruskal.prototype.InsertEdgeIntoPQ = function(node,pq) {
+	adjList=node.adjList;
+	weights=node.weight;
+	for (var i = 0; i < adjList.length; i++) {
+		temp=[];
+		temp.push(node);
+		temp.push(adjList[i]);
+		pq.push(temp,weights[i]);		
+	}
+}
