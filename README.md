@@ -13,6 +13,8 @@ Algorithms implemented so far
  
 To do Algorithms
 ----------------
+
+* Kruskal
 * Max Flow
 * Centrality
 * A * Search
