@@ -255,11 +255,11 @@ function dijkstra(graph,source,destination){
 		if(nodes[i]!=source){
 			this.distance[nodes[i].name]=Number.POSITIVE_INFINITY;
 		}
-		pq.push(nodes[i],this.distance[nodes[i].name]);
+        this.pq.push(nodes[i],this.distance[nodes[i].name]);
 	}
 	
-	while(pq.size()!=0){
-		u=pq.pop();
+	while(this.pq.size()!=0){
+		u=this.pq.pop();
 		adjList=u.adjList;
 		for (var i = 0; i < adjList.length; i++) {
 			v=adjList[i];
@@ -268,8 +268,8 @@ function dijkstra(graph,source,destination){
 				if(alt<this.distance[v.name]){
 					this.distance[v.name]=alt;
 					this.previousNode[v.name]=u.name;
-					pq.remove(v);
-					pq.push(v,this.distance[v.name]);
+                    this.pq.remove(v);
+                    this.pq.push(v,this.distance[v.name]);
 				}
 			}
 		}
