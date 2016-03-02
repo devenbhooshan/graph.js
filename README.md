@@ -1,7 +1,7 @@
 graph.js
 ========
 
-A liteweight javascript graph library. 
+A liteweight javascript graph algorithms library. 
 
 Algorithms implemented so far 
 ----------
